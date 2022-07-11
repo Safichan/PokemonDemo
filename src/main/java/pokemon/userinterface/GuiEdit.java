@@ -9,7 +9,7 @@ import java.awt.event.*;
  *
  * JPanel has to be static! Its important right now for the right outcome.
  */
-public class GuiEdit implements ActionListener, ItemListener {
+public class GuiEdit extends JPanel implements ActionListener, ItemListener {
 
     //attributes
     protected static JPanel contentPane;
@@ -30,27 +30,16 @@ public class GuiEdit implements ActionListener, ItemListener {
      * @param trainers String Array
      */
     public GuiEdit(int trainerToEdit, String[] trainers) {
+        super();
         this.trainerEdit = trainerToEdit;
         this.trainers = trainers;
 
-        contentPane = new JPanel();
-
         //adds components
         this.labelName = new JLabel("Test!");
-        contentPane.add(labelName);
+        add(labelName);
         this.name = new JTextField(30);
         this.name.setMaximumSize(this.name.getPreferredSize());
-        contentPane.add(name);
-
-        this.butBack = new JButton("Back");
-        this.butBack.setBounds(130, 100, 100, 40);
-        this.butBack.addActionListener(this);
-        contentPane.add(butBack);
-
-        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
-        contentPane.setVisible(true);
-
-        Gui.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(name);
     }
 
     /**Overrided method from ActionListener. Currently in progress.
@@ -59,13 +48,7 @@ public class GuiEdit implements ActionListener, ItemListener {
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == butBack) {
-            System.out.println("Zurück");
-            contentPane.setVisible(false);
-            Gui.setVisiblity(true);
-            Gui.frame.setContentPane(Gui.getContentPane());
-        }
-
+        //future Buttons here
     }
 
     /**Overrided method from ItemListener. Currently in progress.
@@ -76,22 +59,6 @@ public class GuiEdit implements ActionListener, ItemListener {
     public void itemStateChanged(ItemEvent e) {
         // TODO Auto-generated method stub
 
-    }
-
-    /**Method returns contentPane of GuiEdit.Used in other classes to make it visible or not.
-     *
-     * @return contentPane JPanel
-     */
-    public JPanel getContentPane() {
-        return contentPane;
-    }
-
-    /**Method sets visibility from contentPane of Gui. Used in other classes.
-     *
-     * @param value
-     */
-    public void setVisiblity(boolean value) {
-        contentPane.setVisible(value);
     }
 }
 
