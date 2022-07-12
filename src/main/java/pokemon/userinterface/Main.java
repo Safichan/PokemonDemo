@@ -1,7 +1,5 @@
 package pokemon.userinterface;
 
-import userinterface.GuiCard;
-
 public class Main {
 
     public static void main(String[] args) {

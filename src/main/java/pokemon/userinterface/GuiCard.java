@@ -14,6 +14,7 @@ public class GuiCard implements ActionListener, ItemListener {
 
     // all components
     protected static JFrame frame;
+    protected static JLabel comboLabel;
 
     protected static CardLayout cards;
 
