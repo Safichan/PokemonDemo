@@ -1,6 +1,7 @@
 package pokemon.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pokemon {
@@ -15,12 +16,16 @@ public class Pokemon {
     private StatusCondition.SecondaryStatusConditions secondaryStatusConditions;
     private int currentHP;
     private PokemonStats stats;
-    private Pokemon preEvolution;
-    private Pokemon postEvolution;
+    private List<Pokemon> preEvolution;
+    private List<Pokemon> postEvolution;
+
+    private Pokemon(String name) {
+
+    }
 
     public Pokemon(int id, int level, Nature nature, String name, List<PokemonType> types, List<Attacks> combatAttacks, List<Attacks> learnableAttacks,
                    StatusCondition.PrimaryStatusConditions primaryStatusCondition, StatusCondition.SecondaryStatusConditions secondaryStatusConditions,
-                   int currentHP, PokemonStats stats, Pokemon preEvolution, Pokemon postEvolution) {
+                   int currentHP, PokemonStats stats, String[] PreEvolutionName, String[] PostEvolutionname) {
         this.id = id;
         this.level = level;
         this.nature = nature;
@@ -32,9 +37,21 @@ public class Pokemon {
         this.secondaryStatusConditions = secondaryStatusConditions;
         this.currentHP = currentHP;
         this.stats = stats;
-        this.preEvolution = preEvolution;
-        this.postEvolution = postEvolution;
+        //
+        List<Pokemon> preList = new ArrayList<>();
+        for (String preName : PreEvolutionName) {
+            preList.add(new Pokemon(preName));
+        }
+        List<Pokemon> postList = new ArrayList<>();
+        for (String postName : PreEvolutionName) {
+            postList.add(new Pokemon(postName));
+        }
+
+        this.preEvolution = preList;
+        this.postEvolution = postList;
+
     }
+
 
     public int getId() {
         return id;
@@ -108,6 +125,7 @@ public class Pokemon {
         this.secondaryStatusConditions = secondaryStatusConditions;
     }
 
+
     public int getCurrentHP() {
         return currentHP;
     }
@@ -124,23 +142,36 @@ public class Pokemon {
         this.stats = stats;
     }
 
-    public Pokemon getPreEvolution() {
+    public List<Pokemon> getPreEvolution() {
         return preEvolution;
     }
 
-    public void setPreEvolution(Pokemon preEvolution) {
+    public void setPreEvolution(List<Pokemon> preEvolution) {
         this.preEvolution = preEvolution;
     }
-
-    public Pokemon getPostEvolution() {
+    public List<String> getPreEvolutionNames(){
+        List <String> preEvolutionNames = new ArrayList<>();
+        for (Pokemon pokemon: preEvolution) {
+            preEvolutionNames.add(pokemon.name);
+        }
+        return preEvolutionNames;
+    }
+    public List<Pokemon> getPostEvolution() {
         return postEvolution;
     }
 
-    public void setPostEvolution(Pokemon postEvolution) {
+    public void setPostEvolution(List<Pokemon> postEvolution) {
         this.postEvolution = postEvolution;
     }
+    public List<String> getPostEvolutionNames(){
+        List <String> postEvolutionNames = new ArrayList<>();
+        for (Pokemon pokemon: postEvolution) {
+            postEvolutionNames.add(pokemon.name);
+        }
+        return postEvolutionNames;
+    }
 
-// Stage X model.Pokemon and Evolution
+    // Stage X model.Pokemon and Evolution
 
 
 }
