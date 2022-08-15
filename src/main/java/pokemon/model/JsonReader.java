@@ -35,11 +35,30 @@ public class JsonReader {
 
     }
 
+    /*
+     JSONObject jsonObject = new JSONObject("{\n" +
+                "   \"ID\":\"faz\",\n" +
+                "   \"Level\":\"F.A.Z.\",\n" +
+                "   \"Name\":\"Knarksel\",\n" +
+                "   \"Nature\":\"Bold\",\n" +
+                "   \"Types\":[\n" +
+                "\t\"Fire\", \"Water\"\n" +
+                "],\n" +
+                "   \"CombatAttacks\":[0, 0, 0,\"Attacks\" ],\n" +
+                "   \"LearnableAttacks\":[\"Attacks\", \"Attacks\", \"Attacks\",\"Attacks\", \"Attacks\" ],\n" +
+                "   \"PreEvolution\":[\"Kaumalat\"],\n" +
+                "   \"PostEvolution\":[\"Knackrack\"]\n" +
+                "   }");
+        for ( String key: jsonObject.keySet().toArray(new String[9])
+             ) {
+            System.out.println(key +" "+ jsonObject.get(key));
+
+        }
+     */
     private List<Pokemon> readAllPokemon(){
 
-
         List<Pokemon> pokemonList = new ArrayList<>();
-        String pokemonFolder = "";
+        String pokemonFolder = ".\\src\\JSONFolder\\PokemonJSON";
         String[] pokemonFiles = listFilesForFolder(new File(pokemonFolder));
 
 

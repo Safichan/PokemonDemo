@@ -9,7 +9,7 @@ public class JsonWriter {
 
     }
 
-    public void WriteJson(Pokemon Pokemon){
+    public void writeJson(Pokemon Pokemon){
         JSONObject pokemonJson = new JSONObject();
 
         //pokemonJson.put();

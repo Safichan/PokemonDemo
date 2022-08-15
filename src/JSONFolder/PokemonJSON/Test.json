@@ -1,0 +1,13 @@
+{
+   "ID":"1",
+   "Level":"50",
+   "Name":"Knarksel",
+   "Nature":"Bold",
+   "Types":[
+	"Fire", "Water"
+],
+   "CombatAttacks":["Attacks", "Attacks", "Attacks","Attacks" ],
+   "LearnableAttacks":["Attacks", "Attacks", "Attacks","Attacks", "Attacks" ],
+   "PreEvolution":["Kaumalat"],
+   "PostEvolution":["Knackrack"]
+   }

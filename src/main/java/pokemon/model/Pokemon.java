@@ -8,8 +8,8 @@ import java.util.List;
 public class Pokemon {
     private int id;
     private int level;
-    private Nature nature;
     private String name;
+    private Nature nature;
     private List<PokemonType> types;
     private List<Attacks> combatAttacks;
     private List<Attacks> learnableAttacks;
