@@ -1,13 +1,14 @@
 package pokemon.model;
 
+import org.json.JSONObject;
+
 import java.io.File;
-import java.io.InputStream;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.json.*;
 
 public class JsonReader {
 
@@ -26,7 +27,12 @@ public class JsonReader {
 
     private static String readFileAsString(String file)
     {
-        return new String(Files.readAllBytes(Paths.get(file)));
+        try {
+            return new String(Files.readAllBytes(Path.of(file)));
+        } catch (IOException e) {
+            return null;
+        }
+
     }
 
     private List<Pokemon> readAllPokemon(){
@@ -39,21 +45,18 @@ public class JsonReader {
 
         for (String file : pokemonFiles) {
             String pokemonJson = readFileAsString(file);
-            JSONObject pokemon = new JSONObject(pokemonJson);
+            Pokemon pokemon = new Pokemon(getJSONObjectFromString(pokemonJson));
         }
-
-
-
-
-
-
-        JSONObject =
-
-
         setPokemonEvolutions(pokemonList);
 
         return pokemonList;
     }
+
+    private JSONObject getJSONObjectFromString(String jsonString){
+
+        return new JSONObject(jsonString);
+    }
+
 
     private void setPokemonEvolutions(List<Pokemon> pokemonList){
 

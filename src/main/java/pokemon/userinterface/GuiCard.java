@@ -68,6 +68,8 @@ public class GuiCard implements ActionListener, ItemListener {
 
         // set visible
         frame.setVisible(true);
+
+        //TestPurposes for JSON
     }
 
     /**

@@ -1,5 +1,6 @@
 package pokemon.model;
 
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,11 @@ public class Pokemon {
     private List<Pokemon> preEvolution;
     private List<Pokemon> postEvolution;
 
-    private Pokemon(String name) {
+    public Pokemon(JSONObject pokemonJSON) {
+
+    }
+
+    public Pokemon(String Name) {
 
     }
 
@@ -170,6 +175,7 @@ public class Pokemon {
         }
         return postEvolutionNames;
     }
+
 
     // Stage X model.Pokemon and Evolution
 
